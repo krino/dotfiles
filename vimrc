@@ -38,10 +38,17 @@ set sidescrolloff=5
 set mouse=r
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
+" Ctrl+kjhl navigation
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+nmap <c-h> <c-w>h<c-w><Bar>
+nmap <c-l> <c-w>l<c-w><Bar>
+
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Required
 Plug 'Shougo/unite.vim'
+Plug 'tpope/vim-speeddating'
 
 " Visuals
 " Plug 'altercation/vim-colors-solarized'
@@ -56,15 +63,25 @@ Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
 Plug 'mhinz/vim-grepper'
 Plug 'Shougo/vimfiler.vim', { 'on': 'VimFiler' }
 
+" Git support
+Plug 'tpope/vim-fugitive'
+
 " Code Editing
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'w0rp/ale'
+Plug 'tpope/vim-surround'
+
+" GoLang
+Plug 'fatih/vim-go'
 
 " Movement
 Plug 'justinmk/vim-sneak'
 
 " Tmux
 Plug 'christoomey/vim-tmux-navigator'
+
+" Org mode
+Plug 'jceb/vim-orgmode'
 
 call plug#end()
 
@@ -78,7 +95,7 @@ color dracula
 
 " vim-airline
 let g:airline#extensions#tabline#enabled=1
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts=0
 set laststatus=2
 
 " indentLine
@@ -125,6 +142,22 @@ nnoremap <Leader>t :CtrlP<CR>
 " vimfiler
 map ` :VimFiler -explorer<CR>
 map ~ :VimFilerCurrentDir -explorer -find<CR>
+
+" vim-go
+au FileType go set noexpandtab
+au FileType go set shiftwidth=2
+au FileType go set softtabstop=2
+au FileType go set tabstop=4
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+let g:go_auto_sameids = 1
+
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
