@@ -42,13 +42,25 @@ else
     echo "neovim FAILED TO INSTALL!!!" >> $log_file
 fi
 
+# install exuberant-ctags
+sudo apt-get -y install exuberant-ctags
+if type -p ctags > /dev/null; then
+    echo "ctags installed" >> $log_file
+else
+    echo "ctags FAILED TO INSTALL!!!" >> $log_file
+fi
+
+# install sexpdata
+pip install sexpdata websocket-client
+pip3 install sexpdata websocket-client
+
 # install vim-plug
 
 # setting zsh as default shell
 chsh -s /usr/bin/zsh
 
 # remove any existing config
-rm -rf ~/.vim ~/.vimrc ~/.zshrc ~/.tmux ~/.tmux.conf ~/.config/nvim 2> /dev/null
+rm -rf ~/.vim ~/.vimrc ~/.zshrc ~/.tmux ~/.tmux.conf ~/.config/nvim ~/.ctags 2> /dev/null
 
 # creating necessary directories
 mkdir -p ~/.config ~/.config/nvim
@@ -57,9 +69,7 @@ mkdir -p ~/.config ~/.config/nvim
 ln -s ~/dotfiles/zshrc ~/.zshrc
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/dotfiles/vimrc ~/.config/nvim/init.vim
-
-# alias vim with nvim
-
+ln -s ~/dotfiles/ctags ~/.ctags
 
 
 #==============
