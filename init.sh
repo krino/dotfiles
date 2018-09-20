@@ -17,10 +17,10 @@ if type -p zsh > /dev/null; then
 else
     echo "zsh FAILED TO INSTALL!!!" >> $log_file
 fi
-sudo apt-get install zsh-syntax-highlighting
+sudo apt-get install zsh-syntax-highlighting xcape
 
 # install tmux
-sudo apt-get -y install tmux
+sudo apt-get -y install tmux tmuxinator
 if type -p tmux > /dev/null; then
     echo "tmux Installed" >> $log_file
 else
