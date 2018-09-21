@@ -24,13 +24,14 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 ln -s dotfiles/oh-my-zsh-custom.zsh ~/.oh-my-zsh/
 
 # install tmux
-sudo apt-get -y install tmux tmuxinator
+sudo apt-get -y install tmux tmuxinator fonts-powerline
 if type -p tmux > /dev/null; then
     echo "tmux Installed" >> $log_file
 else
     echo "tmux FAILED TO INSTALL!!!" >> $log_file
 fi
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# remember to C-A I to load the plugins
 
 # install neovim
 sudo apt-get -y install python2 python3 python-pip python3-pip
@@ -76,6 +77,7 @@ ln -s ~/dotfiles/vimrc ~/.config/nvim/init.vim
 ln -s ~/dotfiles/ctags ~/.ctags
 
 
+# remember to C-A I to load the plugins
 #==============
 # Give the user a summary of what has been installed
 #==============

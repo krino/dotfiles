@@ -1,6 +1,9 @@
 # Auto CD
 setopt auto_cd
 
+# Auto start tmux
+if [ "$TMUX" = "" ]; then tmux; fi
+
 # Remap Caps Lock with Ctrl
 # use gnome tweaks
 
