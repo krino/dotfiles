@@ -4,7 +4,7 @@ log_file=~/install_progress_log.txt
 
 # Install git, git-completion and git-prompt
 cd ~/
-sudo apt-get -y git curl
+sudo apt-get -y install git curl
 curl -OL https://github.com/git/git/raw/master/contrib/completion/git-completion.bash
 mv ~/git-completion.bash ~/.git-completion.bash
 curl https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
@@ -21,7 +21,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # remember to C-A I to load the plugins
 
 # install neovim
-sudo apt-get -y install python2 python3 python-pip python3-pip
+sudo apt-get -y install python python3 python-pip python3-pip
 sudo apt-get -y install neovim python-neovim python3-neovim
 
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
